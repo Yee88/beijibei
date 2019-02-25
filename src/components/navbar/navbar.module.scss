@@ -1,0 +1,47 @@
+.container{
+    width: 100%;
+    height:56px;
+    line-height: 56px;
+    background-color:#209e85;
+    ul{
+        list-style: none;
+    }
+    .nav{
+        float: left;
+        height: 100%;
+        
+        li{
+            float: left;
+            text-align: center;
+            a{
+                
+                color: #fff;
+                font-size: 16px;
+                text-decoration: none; 
+                padding: 16px; 
+            } 
+        }
+        li:first-child{
+            margin-right: 40px;
+            a{
+                padding:0;
+                img{
+                    margin-top: 6px;
+                    width: 100px;
+                    height: 37px;
+                }
+            }
+        }
+    }
+    .navright {
+        float: right;
+        .navhelp{
+            float: right;
+            li{
+                float: left;
+            }
+        }
+    }
+}
+
+
