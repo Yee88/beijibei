@@ -1,0 +1,175 @@
+/*=========================reset==================*/
+body,h1,h2,h3,h4,h5,h6,p,a,img,ul,li,dl,dt,dd,ol,input{ padding:0; margin:0;}
+img{ display:block; border:0;}
+input{ outline:none;}
+ul,ol{ list-style:none;}
+
+body{ font-size:14px; font-family:"微软雅黑"; color:#333; background:#fdfdfd;}
+
+a{ text-decoration:none; color:#333;}
+a:hover{ text-decoration:underline; color:#53cac3;}
+
+/*=========================public==================*/
+.w{ width:940px; margin:0 auto;}
+.l{ float:left;}
+.r{ float:right;}
+
+.header{
+  margin-top: 10px;
+  margin-right: 25px;
+  height: 25px;
+  ul.w{
+    width:720px;
+  }
+  ul{
+    font-size: 16px;
+    li{
+      float: right;
+    }
+    span{
+      color: #999;
+      padding: 0 10px;
+    }
+  }
+}
+h1.logo{
+  text-align: center;
+  img{
+    width: 130px;
+    margin: 20px 0 15px;
+    display: inline;
+  }
+}
+.banner{
+  width:940px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  .swiper-button-next{
+    outline: none;
+    right:70px;
+    background-image: url(https://static.baydn.com/media/media_store/image/ee0204d6a83d3441b98334b87958524d.png);
+  }
+  .swiper-button-prev{
+    outline: none;
+    left: 70px;
+    background-image: url(https://static.baydn.com/media/media_store/image/a5c71e1fe995e2979058b3e780dd88e9.png);
+  }
+  .w{
+    width:724px;
+    .swiper-slide{
+      width: 724px !important;
+      img{
+        max-width:100%;
+      }
+    }
+  }
+
+
+  
+}
+
+.main{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  .w{ 
+    display: flex;
+    width: 740px;
+    dl{
+      flex: 1;
+      dt{
+      
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        img{
+          position: absolute;
+          transition: top 0.2s;
+        }
+      }
+      dt:hover img{
+          transform: translateY(-2px);
+        }
+      dd{
+        color: #666;
+        margin: 0 0 5px;
+          h4{
+            font-size: 20px;
+            font-weight: normal;
+            color: #333;
+            margin: 30px 0;
+          }
+        }
+      dt.img1{
+        background-image: url(https://static.baydn.com/media/media_store/image/f5b2be41f407b458898c0137116117c1.png);
+        img{
+          left: 19px;
+          width: 73px;
+          top: 0;
+        }
+      }
+      dt.img2{
+        background-image: url(https://media-image1.baydn.com/storage_media_image/cassho/82c985fb207a224a9903238af479a6ed.6d86321eb58ae68be6a344795be23c2d.png);
+        img{
+          left: 6px;
+          width: 88px;
+          top: 6px;
+        }
+      }
+      dt.img3{
+        background-image: url(https://static.baydn.com/media/media_store/image/5331e9ad9e2fd1213c91bca73c49e5e4.png);
+        img{
+          left: 14px;
+          width: 54px;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+.footer{
+  padding-top: 30px;
+  background-color: #f4f4f4;
+  color: #333;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-bottom: 20px;
+  height: 260px;
+  .w{
+    width: 550px;
+    margin: 0 auto;
+    .about{
+      display: flex;
+      ul{
+        flex: 1;
+        width: 200px;
+        li{
+          padding: 0;
+          margin: 0 0 10px 25px;
+          line-height: 15px;
+          h4{
+            margin-bottom: 10px;
+            margin: 10px 0;
+            font-size: 17.5px;
+            line-height: 20px;
+          }
+          img{
+            height: 38px;
+            width: 100px;
+          }
+        }
+      }
+    }
+    .copyright{
+      text-align: center;
+      margin-top: 50px;
+    }
+  }
+  
+}
+
