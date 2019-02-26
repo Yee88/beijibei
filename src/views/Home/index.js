@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import inde from './index.module.scss';
-import { connect } from "react-redux"
+import store from "../../store"
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
 class Home extends Component{
@@ -116,7 +116,11 @@ class Home extends Component{
     );
   }
   componentDidMount(){
-    this.props.Hidenavbar()
+    store.dispatch({
+      type:"Hidenavbar",
+      payload:false
+    })
+    
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -136,21 +140,11 @@ class Home extends Component{
     })
   }
   componentWillUnmount(){
-    this.props.Shownavbar()
-  }
-}
-var mapDispatchToProps={
-  Shownavbar(){
-      return {
+    store.dispatch({
       type:"Shownavbar",
       payload:true
-    }
-  },
-  Hidenavbar(){
-    return {
-      type:"Hidenavbar",
-      payload:false
-    }
-  } 
+    })
+  }
 }
-export default connect(null,mapDispatchToProps)(Home)
+
+export default Home

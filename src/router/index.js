@@ -21,14 +21,14 @@ var router = (
         <App>
             <Switch>
                 <Route path="/home" component={Home}/>
-                <Route path="/word" render={(props)=>
+                <Route path="/word" exact render={(props)=>
                         <Word {...props}>
                             <Switch>
                                 <Route path="/word/guide" component={Guide}/>
                                 <Route path="/word/market" component={Market}/>
                                 <Route path="/word/wordbook" component={Wordbook}/>
                                 <Route path="/word/wordlirary" component={Wordlibrary}/>
-                                <Redirect path="/word" to="/word/guide"/>
+                                
                             </Switch>
                         </Word>
                 }/>
