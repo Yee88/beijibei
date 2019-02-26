@@ -4,6 +4,7 @@ import App from "../App"
 import Home from "../views/Home"
 import Word from "../views/Word"
 import Guide from "../views/Word/Guide"
+import GuideCate from "../views/Word/Guide/GuideCate"
 import Market from "../views/Word/Market"
 import Wordbook from "../views/Word/Wordbook"
 import Wordlibrary from "../views/Word/Wordlibrary"
@@ -21,14 +22,21 @@ var router = (
         <App>
             <Switch>
                 <Route path="/home" component={Home}/>
-                <Route path="/word" exact render={(props)=>
+                <Route path="/word" render={(props)=>
                         <Word {...props}>
                             <Switch>
-                                <Route path="/word/guide" component={Guide}/>
+                                <Route path="/word/guide" render={(props)=>
+                                    <Guide {...props}>
+                                        <Switch>
+                                            <Route path="/word/guide/categories/:id" component={GuideCate}/>
+
+                                        </Switch>
+                                    </Guide>
+                                }/>
                                 <Route path="/word/market" component={Market}/>
                                 <Route path="/word/wordbook" component={Wordbook}/>
                                 <Route path="/word/wordlirary" component={Wordlibrary}/>
-                                
+                                <Redirect path="/word" to="/word/guide"/>
                             </Switch>
                         </Word>
                 }/>
