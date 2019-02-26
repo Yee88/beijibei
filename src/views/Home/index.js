@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import inde from './index.module.scss';
-
+import { connect } from "react-redux"
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
 class Home extends Component{
@@ -25,6 +25,7 @@ class Home extends Component{
        maxWidth:'100%'
     }
     return (
+      
       <div className="Home">
         <header className={inde.header}>
           <ul className={inde.w}>
@@ -115,6 +116,7 @@ class Home extends Component{
     );
   }
   componentDidMount(){
+    this.props.Hidenavbar()
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
       spaceBetween: 30,
@@ -131,10 +133,24 @@ class Home extends Component{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-    });
-    
-
-
+    })
+  }
+  componentWillUnmount(){
+    this.props.Shownavbar()
   }
 }
-export default Home
+var mapDispatchToProps={
+  Shownavbar(){
+      return {
+      type:"Shownavbar",
+      payload:true
+    }
+  },
+  Hidenavbar(){
+    return {
+      type:"Hidenavbar",
+      payload:false
+    }
+  } 
+}
+export default connect(null,mapDispatchToProps)(Home)

@@ -28,7 +28,7 @@ var router = (
                                 <Route path="/word/market" component={Market}/>
                                 <Route path="/word/wordbook" component={Wordbook}/>
                                 <Route path="/word/wordlirary" component={Wordlibrary}/>
-                                <Redirect path="/word" to="/word/market"/>
+                                <Redirect path="/word" to="/word/guide"/>
                             </Switch>
                         </Word>
                 }/>
