@@ -26,7 +26,7 @@ class Guide extends Component{
 		        				{
 		        					this.props.cataloge.map(item=>
 		        						item.pretest?
-		        						<li onClick={this.handleClick.bind(this,item)}><Link to="/home">{item.name}</Link></li>
+		        						<li onClick={this.handleClick.bind(this,item.id)}><Link to="/home">{item.name}</Link></li>
 		        						:null
 		        					)
 		        				}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import inde from './index.module.scss';
+import {Link} from "react-router-dom";
 import store from "../../store"
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
@@ -34,7 +35,7 @@ class Home extends Component{
             <li><a href="javascript:;">登录</a></li>
           </ul>
         </header>
-        <h1 className={inde.logo}><img src="https://static.baydn.com/static/img/logo_v5.png"/></h1>
+        <Link to="/word/guide"><h1 className={inde.logo}><img src="https://static.baydn.com/static/img/logo_v5.png"/></h1></Link>
         <div className={inde.banner}>
           <div className="swiper-button-next" style={btnNext}></div>
           <div className="swiper-button-prev" style={btnPrev}></div>
