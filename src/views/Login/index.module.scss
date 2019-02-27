@@ -6,6 +6,7 @@
 	-webkit-box-shadow: 0 8px 8px 0 rgba(51, 51, 51, 0.05), 0 0 8px 0 rgba(51, 51, 51, 0.15);
     box-shadow: 0 8px 8px 0 rgba(51, 51, 51, 0.05), 0 0 8px 0 rgba(51, 51, 51, 0.15);
     display: flex;
+    position:relative;
 	.login_alert{
     	position:absolute;
     	left: 75%;
@@ -56,9 +57,6 @@
 			    padding-left: 40px;
 			    border: 1px solid #cacaca;
 			    border-radius: 4px;
-			    -webkit-transition: all 0.2s;
-			    -o-transition: all 0.2s;
-			    transition: all 0.2s;
 		    }
 		    .login_input:focus {
 		    	border: 1px solid #209e85;
