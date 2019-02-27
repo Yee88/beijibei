@@ -42,5 +42,10 @@ ul,li{
 .active0{
   color:#ff0 !important;
 }
-
-
+.a0{
+  color:#0088cc;
+}
+.a0:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}

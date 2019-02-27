@@ -78,26 +78,6 @@ class Listen extends Component{
         )
         
     }
-    componentDidMount(){
-        if(this.props.list.length===0){
-            this.props.getListPromise();
-        }
-    }  
+     
 }
-var mapStateToProps = (state) => ({
-    list: state.listReducer
-})
-var mapDispatchToProps = {
-    getListPromise(){
-        return axios({
-            url: "/api/v1/listen/book/1?_=1551194839674",
-        }).then(res=>{
-            return {
-                type:"addlist",
-                payload:res.data.data.articles
-            }  
-        })
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Listen)
+export default Listen

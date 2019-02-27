@@ -45,10 +45,10 @@ var router = (
                 <Route path="/listen" render={(props)=>
                     <Listen {...props}>
                         <Switch>
-                            <Route path="/listen/books/:id" component={Books}/>
+                            <Route path="/listen/books/:id" component={Books} replace/>
                         </Switch>
                     </Listen>
-                }/>
+                } replace/>
                 <Route path="/spoken" component={Spoken} replace/>
                 <Route path="/reading" component={Reading} replace/>
                 <Route path="/practice" component={Practice} replace/>
