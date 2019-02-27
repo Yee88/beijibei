@@ -3,7 +3,7 @@ import login from "./index.module.scss"
 import { Icon,Alert } from 'antd'
 import "antd/dist/antd.css"
 import axios from "axios"
-import {setCookie,getCookie} from '../../store/cookie.js'
+import Cookie from 'js-cookie'
 
 class Login extends Component{
     constructor(props) {
@@ -65,7 +65,7 @@ class Login extends Component{
     }
 
     componentDidMount() {
-    	if(getCookie('phone')){
+    	if(Cookie.get('phone')){
             this.props.history.push('/word/guide')
         }
     }
@@ -100,7 +100,7 @@ class Login extends Component{
             }).then(res=>{
                 console.log(res)
                 if(res.data.ok === 1) {
-                    setCookie('phone',this.state.phone,1000*60)
+                    Cookie.set('phone', this.state.phone, { expires: 1 })
                     this.props.history.push('/word/guide')
                    // this.setState({ visible: true, message:'登陆成功' })
                 }

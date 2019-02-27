@@ -4,9 +4,15 @@ import {Link} from "react-router-dom";
 import store from "../../store"
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
+import Cookie from 'js-cookie'
+
 class Home extends Component{
-    state={
-        
+    constructor(props) {
+      super(props);
+    
+      this.state = {
+        loginshow:true
+      };
     }
     render() {
     var btnNext={
@@ -28,13 +34,19 @@ class Home extends Component{
     return (
       
       <div className="Home">
-        <header className={inde.header}>
+      {
+        this.state.loginshow?(
+          <header className={inde.header} loginshow>
           <ul className={inde.w}>
             <li><Link to="register">注册</Link></li>
             <li><span>|</span></li>
             <li><Link to="login">登录</Link></li>
           </ul>
         </header>
+        ):
+        null
+      }
+        
         <Link to="/word/guide"><h1 className={inde.logo}><img src="https://static.baydn.com/static/img/logo_v5.png"/></h1></Link>
         <div className={inde.banner}>
           <div className="swiper-button-next" style={btnNext}></div>
@@ -121,6 +133,11 @@ class Home extends Component{
       type:"Hidenavbar",
       payload:false
     })
+    if(Cookie.get('phone')){
+        this.setState({
+          loginshow:false
+        })
+    }
     
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
