@@ -1,0 +1,88 @@
+/*=========================reset==================*/
+body,h1,h2,h3,h4,h5,h6,p,a,img,ul,li,dl,dt,dd,ol,input{ padding:0; margin:0;}
+img{ display:block; border:0;}
+input{ outline:none;}
+ul,ol{ list-style:none;}
+
+body{ font-size:14px; font-family:"微软雅黑"; color:#333; background:#fdfdfd;}
+
+a{ text-decoration:none; color:#333;}
+a:hover{ text-decoration:underline; color:#53cac3;}
+
+/*=========================public==================*/
+.w{ width:940px; margin:0 auto;}
+.l{ float:left;}
+.r{ float:right;}
+
+.Zbanner{
+  margin: 0;
+  width: 100%;
+  height: 301px;
+  min-width: 1126px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/static/Rbanner.png);
+}
+.Zdesk{
+  margin:0 auto;
+  padding-top: 40px;
+  width:1160px;
+  height: 482px;
+  background-attachment: fixed;
+  .ZdeskP{
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+    border-bottom:1px solid #EEEEEE;
+  }
+  .Zmiddle{
+    margin-top: 87px;
+    text-align: center;
+
+  .ZdeskImg{
+    width: 194px;
+    height: 121px;
+    min-width: 194px;
+    margin: 0 auto;
+    margin-bottom: 34px;
+  }
+  .ZdeskTip1{
+    font-size: 18px;
+    font-weight: 500;
+    color: #666;
+  }
+  .ZdeskTip2{
+    font-size: 15px;
+    color: #999;
+    }
+  }
+}
+.Zfooter{
+  width: 100%;
+  height: 360px;
+  background-color: #f9f9fb;
+  min-width: 1160px;
+
+  .ZfooterTip1{
+    padding-top: 60px;
+    font-size: 17px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+  }
+  .ZfooterImg{
+    margin-top: 10px;
+    width: 358px;
+    height: 184px;
+    min-width: 358px;
+    margin: 0 auto;
+  }
+  .ZfooterTip2{
+    margin-top: 53px;
+    font-size: 11px;
+    color: #333;
+    opacity: 0.34;
+    font-weight: 500;
+    text-align: center;
+  }
+}
