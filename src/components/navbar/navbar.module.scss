@@ -1,63 +1,66 @@
-.container{
-    width: 100%;
-    height:56px;
-    line-height: 56px;
+.nafvbar {
+    min-width: 1240px; 
     background-color:#209e85;
-    position: relative;
-    ul{
-        list-style: none;
-    }
-    .nav{
-        float: left;
-        height: 100%;
-        .navSec{
-            position: absolute;
-            left: 155px;
-            background: #f5f5f5;
-            width: 1170px;
-            li{
-                float: left;
-                margin-right: 3px !important;
-                text-align: center;
-                list-style: none;
-
-                a{
-                    border-bottom: 2px solid hsla(0, 0%, 100%, 0);
-                    padding: 12px 15px;
-                    font-size: 15px;
-                    color: #666;
-                }
-            }
+    padding: 0 20px;
+    .container{
+        width: 1200px; 
+        min-width: 1200px;
+        height:54px;
+        line-height: 54px;
+        margin: 0 auto;
+        ul{
+            list-style: none;
         }
-        li{
+        .nav{
             float: left;
-            text-align: center;
-            a{
-                
-                color: #fff;
-                font-size: 16px;
-                text-decoration: none; 
-                padding: 16px; 
-            } 
-        }
-        li:first-child{
-            margin-right: 40px;
-            a{
-                padding:0;
-                img{
-                    margin-top: 6px;
-                    width: 100px;
-                    height: 37px;
+            height: 100%;
+            .navSec{
+                position: absolute;
+                left: 155px;
+                background: #f5f5f5;
+                width: 1170px;
+                li{
+                    float: left;
+                    margin-right: 3px !important;
+                    text-align: center;
+                    list-style: none;
+
+                    a{
+                        border-bottom: 2px solid hsla(0, 0%, 100%, 0);
+                        padding: 12px 15px;
+                        font-size: 15px;
+                        color: #666;
+                    }
+                }
+            }
+            li{
+                float: left;
+                text-align: center;
+                a{
+                    
+                    color: #fff;
+                    font-size: 16px;
+                    text-decoration: none; 
+                    padding: 16px; 
+                } 
+            }
+            li:first-child{
+                margin-right: 40px;
+                a{
+                    padding:0;
+                    img{
+                        margin-top: 6px;
+                        width: 100px;
+                        height: 37px;
+                    }
                 }
             }
         }
-    }
-    .navright {
-        float: right;
-        .navhelp{
+        .navright {
             float: right;
-            li{
-                float: left;
+            a {
+                color: #fff;
+                text-decoration: none;
             }
         }
     }

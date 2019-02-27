@@ -2,6 +2,31 @@ import React,{Component} from "react"
 import {NavLink} from "react-router-dom"
 import store from "../../store"
 import yee from "./navbar.module.scss"
+import { Menu, Dropdown, Icon } from 'antd'
+
+const menu = (
+  <Menu>
+    <Menu.Item key="0">
+      <a target="_blank" rel="noopener noreferrer">我的空间</a>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <a target="_blank" rel="noopener noreferrer">我的打卡</a>
+    </Menu.Item>
+    <Menu.Item key="2">
+      <a target="_blank" rel="noopener noreferrer">我的班级</a>
+    </Menu.Item>
+    <Menu.Item key="3">
+      <a target="_blank" rel="noopener noreferrer">我的保险</a>
+    </Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="3" rel="noopener noreferrer">短信</Menu.Item>
+    <Menu.Item key="4" rel="noopener noreferrer">贝壳</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="5" rel="noopener noreferrer">设置</Menu.Item>
+    <Menu.Item key="6" rel="noopener noreferrer">推出</Menu.Item>
+  </Menu>
+);
+
 class Navbar extends Component{
     state={
         isShow:store.getState().navbarReducer,
@@ -92,11 +117,11 @@ class Navbar extends Component{
                             </li>
                         </ul>
                         <div className={yee.navright}>
-                            <input type="text"/>
-                            <ul className={yee.navhelp}>
-                                <li>帮助</li>
-                                <li>动态获取</li>
-                            </ul>
+                            <Dropdown overlay={menu}>
+                                <a className="ant-dropdown-link" href="#">
+                                  我的用户名
+                                </a>
+                            </Dropdown>
                         </div>
 
                     </div>

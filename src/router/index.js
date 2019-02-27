@@ -14,6 +14,8 @@ import Reading from "../views/Reading"
 import Practice from "../views/Practice"
 import Course from "../views/Course"
 import Community from "../views/Community"
+import Login from "../views/Login"
+import Register from "../views/Register"
 import { Provider } from "react-redux"
 import store from "../store"
 var router = (
@@ -46,6 +48,8 @@ var router = (
                 <Route path="/practice" component={Practice}/>
                 <Route path="/course" component={Course}/>
                 <Route path="/community" component={Community}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/register" component={Register}/>
                 <Redirect from="/" to="/home" exact/>
             </Switch>
         </App>
