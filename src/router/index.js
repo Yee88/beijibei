@@ -9,6 +9,7 @@ import Market from "../views/Word/Market"
 import Wordbook from "../views/Word/Wordbook"
 import Wordlibrary from "../views/Word/Wordlibrary"
 import Listen from "../views/Listen"
+import Books from "../views/Listen/Books"
 import Spoken from "../views/Spoken"
 import Reading from "../views/Reading"
 import Practice from "../views/Practice"
@@ -41,7 +42,13 @@ var router = (
                             </Switch>
                         </Word>
                 } replace/>
-                <Route path="/listen" component={Listen} replace/>
+                <Route path="/listen" render={(props)=>
+                    <Listen {...props}>
+                        <Switch>
+                            <Route path="/listen/books/:id" component={Books}/>
+                        </Switch>
+                    </Listen>
+                }/>
                 <Route path="/spoken" component={Spoken} replace/>
                 <Route path="/reading" component={Reading} replace/>
                 <Route path="/practice" component={Practice} replace/>
