@@ -9,7 +9,8 @@ class Listen extends Component{
     rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
     state={
         openKeys: ['sub1'],
-        isShow:false,
+        isShow1:true,
+        isShow2:false,
         booksId:[10,13]
     }
     onOpenChange = (openKeys) => {
@@ -24,14 +25,19 @@ class Listen extends Component{
             });
         }
     }
-    handleClick(){
+    handleClick1(){
         this.setState({
-           isShow:!this.state.isShow
+           isShow1:true,
+           isShow2:false
+        })
+    }
+    handleClick2(){
+        this.setState({
+           isShow1:false,
+           isShow2:true
         })
     }
     turnClick(id){
-        console.log(this.props.history)
-        console.log(id)
         this.props.history.push(`/listen/books/${id}`)
     }
     render(){
@@ -44,8 +50,8 @@ class Listen extends Component{
                     style={{ width: 256 }}
                 >
                     <SubMenu key="sub1" title={<span><span>VOA</span></span>}>
-                    <Menu.Item key="1" onClick={this.handleClick.bind(this)}>慢速</Menu.Item>
-                    <Menu.Item key="2">常速</Menu.Item>
+                    <Menu.Item key="1" onClick={this.handleClick1.bind(this)}>慢速</Menu.Item>
+                    <Menu.Item key="2" onClick={this.handleClick2.bind(this)}>常速</Menu.Item>
                     <Menu.Item key="3">BBC</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" title={<span><span>出国英语</span></span>}>
@@ -60,13 +66,27 @@ class Listen extends Component{
                     </SubMenu>
                 </Menu>
                 {
-                    this.state.isShow?
+                    this.state.isShow1?
                         <div className={yee.rightCotainer}>
                             <div className={yee.title}>VOA英语</div>
                             <div className={yee.books}>
                             {
                                 this.state.booksId.map((item,index)=>
-                                    <li key={index} onClick={this.turnClick.bind(this,item)}><img src="/static/TOEFL1.jpg" alt=""/></li>
+                                    <li key={index} onClick={this.turnClick.bind(this,item)}><img src={`/static/cet${index+3}.png`} alt=""/></li>
+                                )
+                            }
+                            </div>
+                        </div>
+                    :null
+                }
+                {
+                    this.state.isShow2?
+                        <div className={yee.rightCotainer}>
+                            <div className={yee.title}>VOA英语</div>
+                            <div className={yee.books}>
+                            {
+                                this.state.booksId.map((item,index)=>
+                                    <li key={index} onClick={this.turnClick.bind(this,item)}><img src={`/static/voa${index+2}.png`} alt=""/></li>
                                 )
                             }
                             </div>

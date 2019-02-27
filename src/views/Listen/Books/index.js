@@ -8,7 +8,8 @@ class Books extends Component{
         visible: true,
         summaryShow:true,
         courseShow:false,
-        estimateShow:false
+        estimateShow:false,
+        comments:[]
     }
     showModal = () => {
         this.setState({
@@ -44,12 +45,13 @@ class Books extends Component{
             abc:this.props.list.articles
             })
     }
-    estimateClick(){
+    estimateClick(id){
         this.setState({
             summaryShow:false,
             courseShow:false,
             estimateShow:true
             })
+        
     }
     detailClick(data){
         if(data==0){
@@ -81,7 +83,7 @@ class Books extends Component{
                         <Menu.Item key="course" onClick={this.courseClick.bind(this)}>
                           课程内容
                         </Menu.Item>
-                        <Menu.Item key="estimate" onClick={this.estimateClick.bind(this)}>
+                        <Menu.Item key="estimate" onClick={this.estimateClick.bind(this,this.props.match.params.id)}>
                           用户评价
                         </Menu.Item>
                      </Menu>
@@ -99,7 +101,12 @@ class Books extends Component{
                     }
                     { 
                      this.state.estimateShow?
-                     <p style={{minHeight:"300px"}}>b</p>
+                     this.state.comments.map(item=>
+                            <div className={yee.comments}  style={{minHeight:"30px"}} key={item.id}>
+                                <p style={{minHeight:"10px"}}>{item.content}</p>
+                                <p className={yee.date} style={{minHeight:"10px"}}><span>{item.user.nickname}</span>{"@"+item.create_date}</p>
+                            </div> 
+                        )
                      :null        
                     }
                     </Modal>
@@ -109,6 +116,12 @@ class Books extends Component{
     componentDidMount() {
         //if(JSON.stringify(this.props.list)=='{}'){}
         this.props.getListPromise(this.props.match.params.id); 
+        axios({
+            url: `/api/v1/book/comment/listen/${this.props.match.params.id}/pagination/?page=1&_=1551274715342`,
+        }).then(res =>
+              //console.log(res.data.data.comments)
+              this.state.comments=[...res.data.data.comments]
+        )
     }
 }
 

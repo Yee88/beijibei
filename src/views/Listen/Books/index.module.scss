@@ -1,0 +1,17 @@
+.comments{
+	border-bottom:1px solid #ccc;
+	p{	
+		font-size:16px;
+		margin:10px 0;
+		font-weight:bold;
+		span{
+			color:skyblue;
+			font-size:13px;
+			font-weight:normal;
+		}
+	}
+	.date{
+		font-weight:normal;
+		font-size:13px;
+	}
+}
