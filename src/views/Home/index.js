@@ -30,9 +30,9 @@ class Home extends Component{
       <div className="Home">
         <header className={inde.header}>
           <ul className={inde.w}>
-            <li><a href="javascript:;">注册</a></li>
+            <li><Link to="register">注册</Link></li>
             <li><span>|</span></li>
-            <li><a href="javascript:;">登录</a></li>
+            <li><Link to="login">登录</Link></li>
           </ul>
         </header>
         <Link to="/word/guide"><h1 className={inde.logo}><img src="https://static.baydn.com/static/img/logo_v5.png"/></h1></Link>

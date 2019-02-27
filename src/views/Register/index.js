@@ -24,7 +24,7 @@ class Register extends Component{
         			<Icon className={`${login.login_icon}`} type="lock" />
         		</div>
         		<div className={`${login.login_box}`}>
-        			<button className={`${login.login_button}`}>登录</button>
+        			<button className={`${login.login_button}`}>注册</button>
         		</div>
         	</div>
         </div>
