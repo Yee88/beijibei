@@ -53,7 +53,7 @@ class Guide extends Component{
     	this.props.getCate()
     }
     handleClick(id,title){
-    	console.log(title)
+    	console.log(this)
 		this.setState({
 			isShowCate:false
 		})
@@ -61,15 +61,15 @@ class Guide extends Component{
 			pathname:`/word/guide/categories/${id}`,
 			state:{
 				title:'/' + title,
-				showCate:this.showCate
+				showCate:()=>{
+					console.log("12fqfwefq3f")
+					this.setState({
+						isShowCate:true
+					})
+				}
 			}
 		}
 		this.props.history.push(option)
-	}
-	showCate(){
-		this.setState({
-			isShowCate:false
-		})
 	}
 }
 
