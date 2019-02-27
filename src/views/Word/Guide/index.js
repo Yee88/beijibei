@@ -26,7 +26,7 @@ class Guide extends Component{
 		        				{
 		        					this.props.cataloge.map(item=>
 		        						item.pretest?
-		        						<li onClick={this.handleClick.bind(this,item.id)}><Link to="/home">{item.name}</Link></li>
+		        						<li onClick={this.handleClick.bind(this,item.id,item.name)}><a>{item.name}</a></li>
 		        						:null
 		        					)
 		        				}
@@ -35,7 +35,7 @@ class Guide extends Component{
 		        				{
 		        					this.props.cataloge.map(item=>
 		        						!item.pretest?
-		        						<li onClick={this.handleClick.bind(this,item.id)}><Link to="/home">{item.name}</Link></li>
+		        						<li onClick={this.handleClick.bind(this,item.id,item.name)}><a>{item.name}</a></li>
 		        						:null
 		        					)
 		        				}
@@ -47,20 +47,29 @@ class Guide extends Component{
 	        	):
 	        	this.props.children
         }
-        	
-        	
         </div>
     }
     componentDidMount(){
     	this.props.getCate()
     }
-    handleClick(id){
-		//编程式导航
-		console.log(this.props);
+    handleClick(id,title){
+    	console.log(this)
 		this.setState({
 			isShowCate:false
 		})
-		this.props.history.push(`/word/guide/categories/${id}`);
+		let option ={
+			pathname:`/word/guide/categories/${id}`,
+			state:{
+				title:'/' + title,
+				showCate:()=>{
+					console.log("12fqfwefq3f")
+					this.setState({
+						isShowCate:true
+					})
+				}
+			}
+		}
+		this.props.history.push(option)
 	}
 }
 

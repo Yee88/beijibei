@@ -16,7 +16,7 @@ class GuideCate extends Component{
             <div className={guideCateDetail.catedetail}>
             	<div className={guideCateDetail.w}>
 	            	<div className={guideCateDetail.header}>
-	            		<h1>选择单词书<span>/影视剧</span></h1>
+	            		<h1>选择单词书 <span>{this.props.location.state.title}</span></h1>
 	            	</div>
 	            	<div className={guideCateDetail.datalist}>
 						<ul className={guideCateDetail.detaildata}>
@@ -42,7 +42,6 @@ class GuideCate extends Component{
         </div>
     }
     componentDidMount(){
-    	console.log(this.props)
     	 axios({
     		url:`/api/v1/guide/wordbook/${this.props.match.params.id}/`
     	}).then(res=>{
@@ -51,6 +50,10 @@ class GuideCate extends Component{
     			catedetaillist:res.data.data
     		})
     	})
+    }
+    componentWillUnmount(){
+    	console.log('aaa')
+    	this.props.location.state.showCate()
     }
 
 }

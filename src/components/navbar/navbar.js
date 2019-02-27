@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom"
 import store from "../../store"
 import yee from "./navbar.module.scss"
 import { Menu, Dropdown, Icon } from 'antd'
+import Cookie from 'js-cookie'
 
 const menu = (
   <Menu>
@@ -23,7 +24,10 @@ const menu = (
     <Menu.Item key="4" rel="noopener noreferrer">贝壳</Menu.Item>
     <Menu.Divider />
     <Menu.Item key="5" rel="noopener noreferrer">设置</Menu.Item>
-    <Menu.Item key="6" rel="noopener noreferrer">推出</Menu.Item>
+    <Menu.Item key="6" rel="noopener noreferrer" onClick={()=>{
+        Cookie.remove('phone');
+
+    }}><NavLink to="/login" replace>退出</NavLink></Menu.Item>
   </Menu>
 );
 
@@ -118,8 +122,8 @@ class Navbar extends Component{
                         </ul>
                         <div className={yee.navright}>
                             <Dropdown overlay={menu}>
-                                <a className="ant-dropdown-link" href="#">
-                                  我的用户名
+                                <a className="ant-dropdown-link" href="javascript:;">
+                                  {Cookie.get('phone')}
                                 </a>
                             </Dropdown>
                         </div>

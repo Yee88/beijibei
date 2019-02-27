@@ -1,0 +1,26 @@
+.listen{
+    width: 1200px !important;
+    border:1px solid #ccc;
+    overflow: hidden;
+}
+.menu{
+    margin:100px 0 0 130px !important;
+    float: left;
+}
+.rightCotainer{
+    float: left;
+    margin-top:100px;
+    .title{
+        font-size: 20px;
+
+    }
+    li{
+       float: left;
+       img{
+          width: 125px;
+          height:177px;
+          margin:0 10px 10px 10px; 
+       }
+    }
+    
+}
