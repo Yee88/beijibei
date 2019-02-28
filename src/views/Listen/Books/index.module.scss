@@ -1,12 +1,12 @@
 .comments{
 	border-bottom:1px solid #ccc;
 	p{	
-		font-size:16px;
-		margin:10px 0;
+		font-size:15px;
+		margin:8px 0;
 		font-weight:bold;
 		span{
 			color:skyblue;
-			font-size:13px;
+			font-size:12px;
 			font-weight:normal;
 		}
 	}
@@ -14,4 +14,7 @@
 		font-weight:normal;
 		font-size:13px;
 	}
+}
+.page{
+	margin-top:10px;
 }

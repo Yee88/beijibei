@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import yee from "./index.module.scss"
 import axios from "axios"
 import { Spin, Alert } from 'antd';
+import { Pagination } from 'antd';
 class Books extends Component{
     state={
         visible: true,
@@ -11,7 +12,8 @@ class Books extends Component{
         courseShow:false,
         estimateShow:false,
         loadShow:true,
-        comments:[]
+        comments:[],
+        dataTotal:{}
     }
     showModal = () => {
         this.setState({
@@ -60,7 +62,18 @@ class Books extends Component{
             this.props.history.push("/listen/review")
         }
     }
-
+    
+    onChange(pageNumber){
+      console.log('Page: ', pageNumber);
+      axios({
+            url: `/api/v1/book/comment/listen/${this.props.match.params.id}/pagination/?page=${pageNumber}&_=1551274715342`,
+        }).then(res =>{
+            //console.log(res.data.data.comments)
+              this.state.comments=[...res.data.data.comments]
+              this.state.dataTotal={...res.data.data}
+              this.props.history.push(`/listen/books/${this.props.match.params.id}/${pageNumber}`)
+        })
+    }
     render(){
         return (
                 <div>
@@ -91,7 +104,7 @@ class Books extends Component{
                      </Menu>
                     { 
                      this.state.summaryShow?
-                     <div style={{minHeight:"300px"}}>
+                     <div style={{minHeight:"280px"}}>
                         {
                             this.state.loadShow?
                                 <Spin tip="Loading...">
@@ -104,25 +117,26 @@ class Books extends Component{
                     {
                         this.state.courseShow?
                         this.props.list.articles.map((item,index)=>
-                            <p className={"a"+index} style={{minHeight:"30px"}} key={item.id} onClick={this.detailClick.bind(this,index)}>{index+1+'.'+' '}{item.title}</p>
+                            <p className={"a"+index} style={{minHeight:"22px"}} key={item.id} onClick={this.detailClick.bind(this,index)}>{index+1+'.'+' '}{item.title}</p>
                             )
                         :null
                     }
                     { 
                      this.state.estimateShow?
                      this.state.comments.map(item=>
-                            <div className={yee.comments}  style={{minHeight:"30px"}} key={item.id}>
+                            <div className={yee.comments}  style={{minHeight:"22px"}} key={item.id}>
                                 <p style={{minHeight:"10px"}}>{item.content}</p>
                                 <p className={yee.date} style={{minHeight:"10px"}}><span>{item.user.nickname}</span>{"@"+item.create_date}</p>
                             </div> 
                         )
                      :null        
                     }
-                    </Modal>
+                    {   this.state.estimateShow?
+                        <Pagination className={yee.page} defaultCurrent={1} total={this.state.dataTotal.total} onChange={this.onChange.bind(this)}/>
+                        :null
+                    }
                     
-
-                        
-                   
+                    </Modal>
                 </div>
                 )
     }
@@ -134,10 +148,14 @@ class Books extends Component{
             }); 
         axios({
             url: `/api/v1/book/comment/listen/${this.props.match.params.id}/pagination/?page=1&_=1551274715342`,
-        }).then(res =>
-              //console.log(res.data.data.comments)
+        }).then(res =>{
+            //console.log(res.data.data.comments)
               this.state.comments=[...res.data.data.comments]
-        )
+              this.state.dataTotal={...res.data.data}
+             
+        })
+              
+        
     }
 }
 

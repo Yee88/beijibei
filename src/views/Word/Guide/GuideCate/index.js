@@ -1,8 +1,7 @@
 import React,{Component} from "react"
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 import axios from "axios"
 import guideCateDetail from './index.module.scss';
-
 class GuideCate extends Component{
 	constructor(props) {
 	  super(props);
@@ -29,7 +28,7 @@ class GuideCate extends Component{
 												<h3>{item.title}</h3>
 												<p>上传者：{item.owner.username}</p>
 												<p>单词数：{item.count}</p>
-												<button>开始学习</button>
+												<button><NavLink to="/listen/books/10">开始学习</NavLink></button>
 											</dd>
 										</dl>
 									</li>
