@@ -71,6 +71,10 @@
                 }
                 .group_team {
                     margin-bottom: 10px;
+                    .group_loading {
+                        text-align: center;
+                        margin-top: 50px;
+                    }
                     .group_team_box {
                         margin: 10px 0;
                         .group_team_head {
@@ -99,14 +103,14 @@
                             .group_team_introduce {
                                 width: 370px;
                                 line-height: 23px;
-                                height: 90px;
                                 font-size: 14px;
-                                display: -webkit-box !important;
-                                overflow: hidden;
+                                overflow : hidden;
                                 text-overflow: ellipsis;
-                                word-break: break-all;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 4;
+                                /*! autoprefixer: off */
                                 -webkit-box-orient: vertical;
-                                -webkit-line-clamp: 2;
+                                /* autoprefixer: on */;
                             }
                         }
                         .group_team_info {
@@ -153,7 +157,27 @@
             .forum_list {
                 margin-bottom: 20px;
                 .forum_menu {
-                    border-right: 0;
+                    li {
+                        height: 56px;
+                        line-height: 56px;
+                        a {
+                            padding-left: 10px;
+                            text-decoration: none;
+                            font-size: 16px;
+                            display: block;
+                            border-left: 4px solid #fff;
+                        }
+                        a:hover {
+                            color: #209e85;
+                            background: #eee;
+                            border-left: 4px solid #209e85;
+                        }
+                        .menu_active {
+                            color: #209e85;
+                            background: #f9f9f9;
+                            border-left: 4px solid #209e85;
+                        }
+                    }
                 }
             }
             .sanb_commend {

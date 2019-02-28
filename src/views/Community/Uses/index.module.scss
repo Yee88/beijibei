@@ -31,6 +31,10 @@
             }
             .topic {
                 margin-top: 20px;
+                .topic_loading {
+                    text-align: center;
+                    margin-top: 50px;
+                }
                 .topic_list {
                     width: 100%;
                     margin-bottom: 20px;
@@ -104,7 +108,27 @@
             .forum_list {
                 margin-bottom: 20px;
                 .forum_menu {
-                    border-right: 0;
+                    li {
+                        height: 56px;
+                        line-height: 56px;
+                        a {
+                            padding-left: 10px;
+                            text-decoration: none;
+                            font-size: 16px;
+                            display: block;
+                            border-left: 4px solid #fff;
+                        }
+                        a:hover {
+                            color: #209e85;
+                            background: #eee;
+                            border-left: 4px solid #209e85;
+                        }
+                        .menu_active {
+                            color: #209e85;
+                            background: #f9f9f9;
+                            border-left: 4px solid #209e85;
+                        }
+                    }
                 }
             }
             .sanb_commend {

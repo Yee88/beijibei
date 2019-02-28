@@ -1,13 +1,15 @@
 import React,{Component} from "react"
 import scss from './index.module.scss'
-import { Menu, Icon, Switch } from 'antd';
 import { connect } from 'react-redux'
 import axios from 'axios'
+import {NavLink} from "react-router-dom"
+import { Spin } from 'antd'
 
 class Community extends Component{
-    state={
-        
+    state = { 
+        loading: true 
     }
+
     render(){
         return <div className={`${scss.main_body} ${scss.container}`}>
             <div className={`${scss.community_banner}`}>
@@ -16,7 +18,7 @@ class Community extends Component{
                         <a href="javascript:;">每天只花15分钟，四六级645！Ta是怎么做到的？</a>
                     </h3>
                     <p className={`${scss.article_summary}`}>备考6月四六级的同学们注意了！</p>
-                    <a href="" className={`${scss.article_detail}`}>查看详细&gt;&gt;</a>
+                    <a href="javascript:;" className={`${scss.article_detail}`}>查看详细&gt;&gt;</a>
                 </div>
                 <div className={`${scss.r} ${scss.banner_right}`}></div>
             </div>
@@ -28,9 +30,11 @@ class Community extends Component{
                                 <small className={`${scss.group_extrainfo}`}>根据7天内小组论坛的总发帖数排名</small>
                             </h3>
                         </div>
-
+                        
                         <div className={`${scss.group_team}`}>
-                            {
+                        {this.state.loading?<div className={`${scss.group_loading}`}><Spin tip="客官稍等..."></Spin></div>
+                            :<div>
+                                {
                                 this.props.list.map(item=>
                                     <div className={`${scss.group_team_box}`} key={item.id}>
                                         <div className={`${scss.l} ${scss.group_team_head}`}>
@@ -50,8 +54,10 @@ class Community extends Component{
                                     </div>
                                 )
                             }
+                            </div>
+                        
+                        }
                         </div>
-
                     </div>
                 </div>
                 <div className={`${scss.r} ${scss.content_right}`}>
@@ -60,23 +66,10 @@ class Community extends Component{
                         <div className={`${scss.forum_title}`}>
                             <h3>论坛列表</h3>
                         </div>
-                        <Menu className={`${scss.forum_menu}`}
-                              style={{ 
-                                width: 360,
-                                fontSize: 24
-                              }}
-                              defaultSelectedKeys={['1']}
-                            >
-                          <Menu.Item key="1">
-                            <a href="#/community/community">论坛首页</a>
-                          </Menu.Item>
-                          <Menu.Item key="2">
-                            <a href="#/community/uses">集思广益（使用答疑区）</a>
-                          </Menu.Item>
-                          <Menu.Item key="3">英语学苑（英语学习区）</Menu.Item>
-                          <Menu.Item key="4">天南海北（灌水区）</Menu.Item>
-                          <Menu.Item key="5">每日翻译</Menu.Item>
-                        </Menu>
+                        <ul className={`${scss.forum_menu}`}>
+                            <li><NavLink to="/community/community" activeClassName={`${scss.menu_active}`}>论坛首页</NavLink></li>
+                            <li><NavLink to="/community/uses" activeClassName={`${scss.menu_active}`}>集思广益（使用答疑区）</NavLink></li>
+                        </ul>
                     </div>
                     <div className={`${scss.sanb_commend}`}>
                         <div className={`${scss.forum_title}`}>
@@ -124,10 +117,13 @@ class Community extends Component{
     }
 
     componentDidMount() {
-        if(this.props.list.length === 0){
-            //发ajax
-            this.props.getListPromise();
-        }
+        //发ajax
+        this.props.getListPromise().then(()=>
+            this.setState({
+                loading: false
+            })
+        )
+
     }
 
 }
@@ -138,12 +134,11 @@ var mapStateToProps = (state)=>({
 
 var mapDispatchToProps = {
     getListPromise(){
-       return axios({
+        return axios({
             url:"/api/v1/team/?rank&page=1&ipp=20&_=1551235021318"
         }).then(res=>{
-            console.log(res.data.data.teams)
             return {
-                type:"addList",
+                type:"communityList",
                 payload:res.data.data.teams
             }
 

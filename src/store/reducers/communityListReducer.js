@@ -1,10 +1,10 @@
 export var communityListReducer = (prevState=[],action)=>{
     
 
-    let {type,payload} = action;
-
+    let {type,payload,loading} = action;
+    
     switch(type){
-        case "addList":
+        case "communityList":
             
 
             return [...prevState,...payload]
