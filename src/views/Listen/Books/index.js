@@ -3,12 +3,14 @@ import { Modal,Icon,Menu } from 'antd';
 import { connect } from "react-redux"
 import yee from "./index.module.scss"
 import axios from "axios"
+import { Spin, Alert } from 'antd';
 class Books extends Component{
     state={
         visible: true,
         summaryShow:true,
         courseShow:false,
         estimateShow:false,
+        loadShow:true,
         comments:[]
     }
     showModal = () => {
@@ -89,7 +91,14 @@ class Books extends Component{
                      </Menu>
                     { 
                      this.state.summaryShow?
-                     <p style={{minHeight:"300px"}}>{this.props.list.introduction}</p>
+                     <div style={{minHeight:"300px"}}>
+                        {
+                            this.state.loadShow?
+                                <Spin tip="Loading...">
+                                </Spin>
+                            :<p>{this.props.list.introduction}</p>
+                        }  
+                     </div>
                      :null        
                     }
                     {
@@ -110,12 +119,19 @@ class Books extends Component{
                      :null        
                     }
                     </Modal>
+                    
+
+                        
+                   
                 </div>
                 )
     }
     componentDidMount() {
-        //if(JSON.stringify(this.props.list)=='{}'){}
-        this.props.getListPromise(this.props.match.params.id); 
+        this.props.getListPromise(this.props.match.params.id).then(()=>{
+            this.setState({
+                loadShow:false
+                })
+            }); 
         axios({
             url: `/api/v1/book/comment/listen/${this.props.match.params.id}/pagination/?page=1&_=1551274715342`,
         }).then(res =>
@@ -126,7 +142,8 @@ class Books extends Component{
 }
 
 var mapStateToProps = (state) => ({
-    list: state.listReducer
+    list: state.listReducer,
+    loadShow:state.loadReducer
 })
 var mapDispatchToProps = {
     getListPromise(id) {
@@ -136,7 +153,7 @@ var mapDispatchToProps = {
         }).then(res => {
             return {
                 type:"addlist",
-                payload:res.data.data
+                payload:res.data.data,
             }
             
         })
