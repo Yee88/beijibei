@@ -1,0 +1,155 @@
+.main_body {
+	background: #fff;
+    padding: 20px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.container {
+    margin-top: 56px;
+    .l {
+        float: left;
+    }
+    .r {
+        float: right;
+    }
+    
+    .content {
+        background: #fff;
+        .content_left {
+            height: 2000px;
+            width: 770px;
+            padding: 0 10px;
+            border-right: 1px solid #eee;
+            .topic_header {
+                padding: 30px 0;
+                border-bottom: 1px solid #eee;
+                h2 {
+                    font-size: 24px;
+                }
+            }
+            .topic {
+                margin-top: 20px;
+                .topic_list {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    .topic_head {
+                        width: 40px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .topic_content {
+                        width: 670px;
+                        margin-left: 30px;
+                        .topic_title {
+                            margin-bottom: 10px;
+                            h4 {
+                                a {
+                                    color: #333;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        .topic_info {
+                            
+                            .topic_author {
+                                font-size: 12px;
+                                a {
+                                    color: #08c;
+                                }
+                            }
+                            .topic_relies {
+                                margin-top: -3px;
+                                a {
+                                    span {
+                                        display: inline-block;
+                                        padding: 2px 4px;
+                                        font-size: 11.844px;
+                                        font-weight: bold;
+                                        line-height: 14px;
+                                        color: #fff;
+                                        vertical-align: baseline;
+                                        white-space: nowrap;
+                                        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+                                        background-color: #999;
+                                        border-radius: 3px;
+                                        margin-top: -3px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .topic_list::after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+            }
+        }
+        .content_right {
+            width: 380px;
+            padding-left: 20px;
+            .forum_title {
+                font-size: 22px;
+                padding-bottom: 11px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ccc;
+                h3 {
+                    color: #209E85;
+                }
+            }
+            .forum_list {
+                margin-bottom: 20px;
+                .forum_menu {
+                    border-right: 0;
+                }
+            }
+            .sanb_commend {
+                .commend_market {
+                    width: 60%;
+                    a {
+                        h4 {
+                            font-weight: bold;
+                            color: #08c;
+                            margin: 10px 0;
+                        }
+                    }
+                }
+                .commend_content {
+                    width: 60%;
+                    margin-left: 10px;
+                    a {
+                        h4 {
+                            color: #08c;
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .commend_img {
+                    img {
+                        border-radius: 4px;
+                    }
+                }
+                div {
+                    margin-bottom: 15px;
+                }
+                div::after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+            }
+
+        }
+    }
+    .content::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+

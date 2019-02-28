@@ -1,0 +1,204 @@
+.main_body {
+	background: #fff;
+    padding: 20px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.container {
+    margin-top: 56px;
+    .l {
+        float: left;
+    }
+    .r {
+        float: right;
+    }
+    .community_banner {
+        height: 202px;
+        border: 1px solid #D6D1BF;
+        padding: 0px;
+        border-radius: 3px;
+        background-color: #EEECDE;
+        margin-bottom: 30px;
+        .banner_left {
+            padding-left: 30px;
+            .article_title {
+                font-size: 26px;
+                margin-top: 30px;
+                font-weight: normal;
+                a {
+                    color: #209E85;
+                    font-weight: normal;
+                }
+            }
+            .article_summary {
+                font-size: 16px;
+                margin: 20px 0;
+            }
+            .article_detail {
+                color: #08c;
+                text-decoration: none;
+            }
+        }
+        .banner_right {
+            width: 370px;
+            height: 200px;
+            background: url(/static/community_top_banner.png)
+        }
+    }
+    .content {
+        background: #fff;
+        .content_left {
+            width: 770px;
+            padding: 0 10px;
+            border-right: 1px solid #eee;
+            .group {
+                .group_title {
+                    padding-left: 10px;
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #CCC;
+                    h3 {
+                        color: #209E85;
+                        font-size: 26px;
+                        .group_extrainfo {
+                            font-size: 14px;
+                            color: #999;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+                .group_team {
+                    margin-bottom: 10px;
+                    .group_team_box {
+                        margin: 10px 0;
+                        .group_team_head {
+                            width: 60px;
+                            height: 60px;
+                            img {
+                                width: 60px;
+                            }
+                        }
+                        .group_team_content {
+                            width: 370px;
+                            margin-left: 30px;
+                            .group_team_teamname {
+                                margin: 10px 0;
+                                a {
+                                    color: #209e85;
+                                    font-size: 15px;
+                                    font-weight: bold;
+                                    margin-right: 5px;
+                                }
+                                small {
+                                    color: #999;
+                                    font-size: 14px;
+                                }
+                            }
+                            .group_team_introduce {
+                                width: 370px;
+                                line-height: 23px;
+                                height: 90px;
+                                font-size: 14px;
+                                display: -webkit-box !important;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                word-break: break-all;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 2;
+                            }
+                        }
+                        .group_team_info {
+                            .group_team_teaminfo {
+                                display: inline-block;
+                                padding: 2px 4px;
+                                font-size: 11.844px;
+                                font-weight: bold;
+                                line-height: 14px;
+                                color: #fff;
+                                vertical-align: baseline;
+                                white-space: nowrap;
+                                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+                                background-color: #209e85;
+                                border-radius: 3px;
+                            }
+                        }
+                    }
+                    .group_team_box::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                }
+                .group_team::after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+            }
+        }
+        .content_right {
+            width: 380px;
+            padding-left: 20px;
+            .forum_title {
+                font-size: 22px;
+                padding-bottom: 11px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ccc;
+                h3 {
+                    color: #209E85;
+                }
+            }
+            .forum_list {
+                margin-bottom: 20px;
+                .forum_menu {
+                    border-right: 0;
+                }
+            }
+            .sanb_commend {
+                .commend_market {
+                    width: 60%;
+                    a {
+                        h4 {
+                            font-weight: bold;
+                            color: #08c;
+                            margin: 10px 0;
+                        }
+                    }
+                }
+                .commend_content {
+                    width: 60%;
+                    margin-left: 10px;
+                    a {
+                        h4 {
+                            color: #08c;
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .commend_img {
+                    img {
+                        border-radius: 4px;
+                    }
+                }
+                div {
+                    margin-bottom: 15px;
+                }
+                div::after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+            }
+
+        }
+    }
+    .content::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+

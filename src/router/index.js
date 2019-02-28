@@ -15,6 +15,8 @@ import Reading from "../views/Reading"
 import Practice from "../views/Practice"
 import Course from "../views/Course"
 import Community from "../views/Community"
+import CommunityIndex from "../views/Community/CommunityIndex"
+import Uses from "../views/Community/Uses"
 import Login from "../views/Login"
 import Register from "../views/Register"
 import { Provider } from "react-redux"
@@ -53,7 +55,15 @@ var router = (
                 <Route path="/reading" component={Reading} replace/>
                 <Route path="/practice" component={Practice} replace/>
                 <Route path="/course" component={Course} replace/>
-                <Route path="/community" component={Community} replace/>
+                <Route path="/community" render={(props)=>
+                    <Community {...props}>
+                        <Switch>
+                            <Route path="/community/community" component={CommunityIndex}/>
+                            <Route path="/community/uses" component={Uses}/>
+                            <Redirect path="/community" to="/community/community"/>
+                        </Switch>
+                    </Community>
+                } replace/>
                 <Route path="/login" component={Login} replace/>
                 <Route path="/register" component={Register} replace/>
                 <Redirect from="/" to="/home" exact/>
