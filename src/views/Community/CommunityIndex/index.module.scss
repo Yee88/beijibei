@@ -4,15 +4,16 @@
     width: 1200px;
     margin: 0 auto;
 }
-
-
 .container {
-    margin-top: 56px;
     .l {
         float: left;
     }
     .r {
         float: right;
+    }
+    .group_loading {
+        text-align: center;
+        margin-top: 50px;
     }
     .community_banner {
         height: 202px;
@@ -71,10 +72,6 @@
                 }
                 .group_team {
                     margin-bottom: 10px;
-                    .group_loading {
-                        text-align: center;
-                        margin-top: 50px;
-                    }
                     .group_team_box {
                         margin: 10px 0;
                         .group_team_head {

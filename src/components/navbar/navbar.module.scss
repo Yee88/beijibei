@@ -1,11 +1,10 @@
 .nafvbar {
     min-width: 1240px; 
-    background-color:#209e85;
-    padding: 0 20px;
     .container{
-        width: 1200px; 
+        width: 100%; 
         min-width: 1200px;
         height:54px;
+        background-color:#209e85;
         line-height: 54px;
         margin: 0 auto;
         ul{
@@ -38,7 +37,7 @@
                 text-align: center;
                 a{
                     
-                    color: #fff;
+                    color: #c9e6e0;
                     font-size: 16px;
                     text-decoration: none; 
                     padding: 16px; 
@@ -64,5 +63,56 @@
             }
         }
     }
+}
+
+.navactive {
+    color: #fff !important;
+    position: relative;
+}
+
+.navactive::before {
+    content: '';
+    position: absolute;
+    width:0;
+    height:0;
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-bottom:7px solid #fff;
+    bottom: 0;
+    left: 25px;
+}
+
+.subcontainer {
+    width: 100%;
+    min-width: 1200px;
+    .nav {
+        width: 1200px;
+        margin: 0 auto;
+        min-width: 1200px;
+        height: 45px;
+        line-height: 45px;
+        li {
+            height: 100%;
+            display: inline-block;
+            a {
+                display: inline-block;
+                height: 100%;
+                cursor: pointer;
+                text-decoration: none;
+                padding: 0 15px;
+                font-size: 16px;
+                color: #666;
+                border-bottom: 2px solid #eee;
+            }
+            a:hover {
+                border-bottom: 2px solid #209e85 !important;
+            }
+        }
+    }
+}
+
+.subnavactive {
+    color: #209e85 !important;
+    border-bottom: 2px solid #209e85 !important;
 }
 

@@ -36,9 +36,7 @@ ul,li{
     transform: rotate(360deg);
   }
 }
-.active {
-  color: #f00 !important;
-}
+
 .active0{
   color:#ff0 !important;
 }

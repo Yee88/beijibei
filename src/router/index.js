@@ -58,9 +58,9 @@ var router = (
                 <Route path="/community" render={(props)=>
                     <Community {...props}>
                         <Switch>
-                            <Route path="/community/community" component={CommunityIndex}/>
-                            <Route path="/community/uses" component={Uses}/>
-                            <Redirect path="/community" to="/community/community"/>
+                            <Route path="/community" component={CommunityIndex} replace/>
+                            <Route path="/community/uses" component={Uses} replace/>
+                            <Redirect path="/community" to="/community"/>
                         </Switch>
                     </Community>
                 } replace/>
